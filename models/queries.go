@@ -2,7 +2,7 @@ package models
 
 import "github.jcosta86.com/todoapi/db"
 
-// Insert inserts a new todo
+// Insert inserts a new todo in the database
 func Insert(todo Todo) (id int64, err error) {
 	conn, err := db.OpenConnection()
 	if err != nil {
@@ -15,7 +15,7 @@ func Insert(todo Todo) (id int64, err error) {
 	return
 }
 
-// Get returns a todo by id
+// Get returns a todo by id from the database
 func Get(id int64) (todo Todo, err error) {
 	conn, err := db.OpenConnection()
 	if err != nil {
@@ -33,7 +33,7 @@ func Get(id int64) (todo Todo, err error) {
 	return
 }
 
-// GetAll returns all todos
+// GetAll returns all todos from the database
 func GeAll() (todos []Todo, err error) {
 	conn, err := db.OpenConnection()
 	if err != nil {
@@ -57,7 +57,7 @@ func GeAll() (todos []Todo, err error) {
 	return todos, nil
 }
 
-// Update updates a todo
+// Update updates a todo in the database
 func Update(id int64, todo Todo) (int64, error) {
 	conn, err := db.OpenConnection()
 	if err != nil {
@@ -74,7 +74,7 @@ func Update(id int64, todo Todo) (int64, error) {
 	return res.RowsAffected()
 }
 
-// Delete deletes a todo
+// Delete deletes a todo by id in the database
 func Delete(id int64) (int64, error) {
 	conn, err := db.OpenConnection()
 	if err != nil {
